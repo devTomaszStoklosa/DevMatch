@@ -53,8 +53,8 @@ export const profiles: Profile[] = [
       {
         label: exhibit,
         text: {
-          pl: 'Analizoteka.pl (samodzielne zaprojektowanie i zbudowanie portalu od A do Z) oraz autorskie aplikacje biznesowe na Power Platform.',
-          en: 'Analizoteka.pl (a portal I designed and built solo, from A to Z) and my own business apps on Power Platform.',
+          pl: 'Analizoteka.pl (samodzielne zaprojektowanie i zbudowanie portalu) oraz autorskie aplikacje biznesowe na Power Platform.',
+          en: 'Analizoteka.pl (a portal I designed and built solo) and my own business apps on Power Platform.',
         },
       },
     ],
@@ -86,8 +86,8 @@ export const profiles: Profile[] = [
       en: 'New tech in the project? I get up to speed fast and ship code.',
     },
     bio: {
-      pl: 'Praca w różnorodnych projektach nauczyła mnie, że technologia to narzędzie do rozwiązania problemu. Błyskawicznie wchodzę w nieznany stack – bez problemu przechodzę między .NET, Angular, React, Low-Code czy nawet językami mobilnymi (Swift, Kotlin), jeśli wymaga tego sytuacja.',
-      en: 'Working on very different projects taught me that technology is a tool for solving a problem. I get into an unfamiliar stack in no time – switching between .NET, Angular, React, Low-Code and even mobile languages (Swift, Kotlin) whenever the situation calls for it.',
+      pl: 'Technologia to dla mnie narzędzie, nie religia. Praca przy różnorodnych projektach nauczyła mnie, że liczy się dowożenie rozwiązań, a nie przywiązanie do konkretnego frameworka. Błyskawicznie wchodzę w nieznany stack – bez problemu przechodzę między .NET, Angular, React, Low-Code czy technologiami mobilnymi (Swift, Kotlin), jeśli wymaga tego sytuacja.',
+      en: 'For me, technology is a tool, not a religion. Working on diverse projects taught me that solving the problem is what matters, not framework dogma. I adapt to unfamiliar stacks in no time – seamlessly moving between .NET, Angular, React, Low-Code, or mobile (Swift, Kotlin) whenever the situation calls for it.',
     },
     prompts: [
       {
@@ -126,7 +126,7 @@ export const profiles: Profile[] = [
       en: 'AI as everyday support for learning, coding and refactoring.',
     },
     bio: {
-      pl: 'Wykorzystuję AI (Claude Code, GitHub Copilot) jako partnera w codziennej pracy. Pozwala mi to jeszcze szybciej opanowywać nowe biblioteki, pisać czysty kod, generować testy i sprawnie przeskakiwać między różnymi technologiami.',
+      pl: 'Wykorzystuję AI (Claude Code, Copilot) jako partnera w codziennym programowaniu. Pomaga mi błyskawicznie poznawać nowe domeny i technologie, pisać czysty kod i generować testy. Wymuszam na AI tryb sokratejski – zadawanie pytań i podważanie moich założeń przy kodowaniu sprawia, że to ja kontroluję architekturę, a model jest wymagającym sparingpartnerem, nie zastępcą.',
       en: 'I use AI (Claude Code, GitHub Copilot) as a partner in my daily work. It helps me pick up new libraries even faster, write clean code, generate tests and move smoothly between different technologies.',
     },
     prompts: [
@@ -151,45 +151,6 @@ export const profiles: Profile[] = [
     onRight: {
       pl: 'Match! Tomasz już pisze dla Ciebie powitalny prompt.',
       en: 'It’s a match! Tomasz is already writing you a welcome prompt.',
-    },
-  },
-  {
-    id: 'fintech',
-    kind: 'good',
-    emoji: '📈',
-    gradient: 'from-emerald-500 via-green-500 to-lime-400',
-    name: { pl: 'Tomasz „Pasjonat Rynków”', en: 'Tomasz "Markets Enthusiast"' },
-    tagline: { pl: 'Fintech & Domena Finansowa', en: 'Fintech & Finance Domain' },
-    headline: {
-      pl: 'Zrozumienie biznesu, danych finansowych i giełdy.',
-      en: 'Understanding the business, financial data and the stock market.',
-    },
-    bio: {
-      pl: 'Łączę zacięcie programistyczne z głęboką praktyczną wiedzą o rynkach kapitałowych. O mało nie zostałem analitykiem rynków finansowych – przeszedłem gęste sito rekrutacyjne, ale pasja do tworzenia oprogramowania wygrała. Świetnie rozumiem świat finansów, dzięki czemu sprawnie przekładam wymagania biznesowe i wskaźniki giełdowe na działający kod.',
-      en: 'I combine a developer’s drive with deep, hands-on knowledge of capital markets. I almost became a financial markets analyst – I made it through a tough recruitment process, but my passion for building software won. I understand the world of finance well, so I translate business requirements and market indicators into working code with ease.',
-    },
-    prompts: [
-      {
-        label: exhibit,
-        text: {
-          pl: 'Stworzenie i rozwój własnej platformy analitycznej Analizoteka.pl (przetwarzanie danych giełdowych, sprawozdań i wskaźników w czasie rzeczywistym) oraz sukcesy w rekrutacjach analitycznych.',
-          en: 'Creating and growing my own analytics platform, Analizoteka.pl (processing market data, financial statements and indicators in real time), plus success in analyst recruitment processes.',
-        },
-      },
-    ],
-    tags: [
-      'Fintech',
-      { pl: 'Analiza Rynkowa', en: 'Market Analysis' },
-      { pl: 'Dane Finansowe', en: 'Financial Data' },
-      { pl: 'Integracje API', en: 'API Integrations' },
-    ],
-    onLeft: {
-      pl: 'Odrzucenie Tomasza ma ujemną stopę zwrotu. Rynek tego nie wybaczy.',
-      en: 'Rejecting Tomasz has a negative rate of return. The market won’t forgive that.',
-    },
-    onRight: {
-      pl: 'Match! Tomasz policzył, że to Twoja najlepsza inwestycja w tym kwartale.',
-      en: 'It’s a match! Tomasz calculated this is your best investment this quarter.',
     },
   },
 ]
@@ -252,7 +213,7 @@ const pl = {
   crunching: 'Algorytm liczy matche…',
   revealTitle: (n: number) => `It’s a Match! ×${n}`,
   reveal1: 'Chwila… Czy oni wszyscy nie mają przypadkiem na imię Tomasz?',
-  reveal2: 'Kreator & Owner, Szybki Onboarding, AI-Native Dev i Pasjonat Rynków to jedna i ta sama osoba.',
+  reveal2: 'Kreator & Owner, Szybki Onboarding i AI-Native Dev to jedna i ta sama osoba.',
   reveal3: 'To nie jest match. To full-stack.',
   revealCta: 'Pokaż kandydata',
   role: 'Full-Stack Software Engineer',
@@ -269,7 +230,6 @@ const pl = {
   cv: 'Pobierz CV (PDF, EN)',
   linkedin: 'LinkedIn',
   replay: 'Zagraj jeszcze raz',
-  footer: 'React + TypeScript + Tailwind · zbudowane z Claude Code',
 }
 
 const en: typeof pl = {
@@ -287,7 +247,7 @@ const en: typeof pl = {
   crunching: 'Crunching the matches…',
   revealTitle: (n) => `It’s a Match! ×${n}`,
   reveal1: 'Wait… don’t they all happen to be called Tomasz?',
-  reveal2: 'Maker & Owner, Fast Onboarding, AI-Native Dev and Markets Enthusiast are one and the same person.',
+  reveal2: 'Maker & Owner, Fast Onboarding and AI-Native Dev are one and the same person.',
   reveal3: 'That’s not a match. That’s full-stack.',
   revealCta: 'Show me the candidate',
   role: 'Full-Stack Software Engineer',
@@ -304,7 +264,6 @@ const en: typeof pl = {
   cv: 'Download CV (PDF)',
   linkedin: 'LinkedIn',
   replay: 'Play again',
-  footer: 'React + TypeScript + Tailwind · built with Claude Code',
 }
 
 export const ui: Record<Lang, typeof pl> = { pl, en }

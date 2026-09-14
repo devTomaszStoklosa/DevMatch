@@ -70,8 +70,6 @@ export default function App() {
           <Summary lang={lang} rejectAttempts={rejectAttempts} hires={hires} onReplay={replay} />
         )}
       </main>
-
-      <footer className="py-4 text-center text-xs text-slate-500">{t.footer}</footer>
     </div>
   )
 }
