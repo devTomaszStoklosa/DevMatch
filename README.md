@@ -1,20 +1,35 @@
-# Swipe Right: Recruiter Edition
+<p align="center">
+  <a href="https://TWOJ-URL.azurestaticapps.net">
+    <img src="docs/demo.gif" width="360" alt="Swipe Right: Recruiter Edition">
+  </a>
+</p>
 
-A tiny swipe game about Tomasz Stokłosa, Full-Stack Software Engineer. Every candidate card is Tomasz in a different disguise, and the game does not accept "no" for an answer. It ends with a summary, a contact button and a CV download.
+<h1 align="center">Swipe Right: Recruiter Edition</h1>
 
-Built with React, TypeScript and Tailwind CSS, with Claude Code as a pair programmer. Hosted on Azure Static Web Apps (Free).
+<p align="center">
+  Gra dla rekruterów, w której każdy kandydat to Tomasz i nie da się go odrzucić.<br>
+  <a href="https://green-bush-09a607b03.6.azurestaticapps.net/"><b>▶ Zagraj</b></a> ·
+  <a href="https://www.linkedin.com/in/tomasz-stoklosa/">LinkedIn</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white">
+  <img src="https://img.shields.io/badge/Azure_SWA-0078D4?logo=microsoftazure&logoColor=white">
+  <img src="https://github.com/USER/REPO/actions/workflows/azure-static-web-apps.yml/badge.svg">
+</p>
+
+## Features
+- Swipe gestures + keyboard
+- PL / EN
+- Summary card with contact and CV download
+- Content in a single file: `src/content.ts`
+
+## Built with Claude Code
 
 ## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-## Edit the content
-
-All texts (PL and EN), profiles, summary traits and contact links live in [`src/content.ts`](src/content.ts). The CV file is `public/Tomasz_Stoklosa_EN.pdf`.
+...
 
 ## Deploy
-
-Pushing to `main` runs `.github/workflows/azure-static-web-apps.yml`, which builds the app and uploads `dist` to Azure Static Web Apps. It needs the repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN` (the deployment token of the Static Web App). Without it the build still runs and the deploy step is skipped.
+...
