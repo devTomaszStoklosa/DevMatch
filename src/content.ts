@@ -22,6 +22,8 @@ export type Profile = {
   gradient: string
   name: Text
   tagline: Text
+  /** Bold lead sentence shown above the bio. */
+  headline: Text
   bio: Text
   prompts: { label: Text; text: Text }[]
   tags: Text[]
@@ -29,126 +31,39 @@ export type Profile = {
   onRight: Text
 }
 
+const exhibit: Text = { pl: 'Dowód rzeczowy', en: 'Exhibit A' }
+
 export const profiles: Profile[] = [
-  {
-    id: 'ai',
-    kind: 'good',
-    emoji: '🤖',
-    gradient: 'from-violet-500 via-fuchsia-500 to-pink-500',
-    name: { pl: 'Tomasz „Prompt”', en: 'Tomasz "Prompt"' },
-    tagline: { pl: '10+ lat w IT · 1 prompt od Ciebie', en: '10+ years in IT · 1 prompt away' },
-    bio: {
-      pl: 'Pasjonat AI. Rozwijam kilka własnych projektów z AI w roli głównej i z chęcią opowiem o nich na rozmowie. AI-assisted development mam przerobiony na całym stacku, nie tylko na slajdach.',
-      en: 'AI enthusiast. I’m building several projects with AI in the lead role and I’d love to walk you through them. AI-assisted development across the whole stack, not just on slides.',
-    },
-    prompts: [
-      {
-        label: { pl: 'Mój pair programmer', en: 'My pair programmer' },
-        text: {
-          pl: 'Claude Code i GitHub Copilot. Całą Analizotekę zbudowałem w tym duecie: architektura, backend, frontend, deploy.',
-          en: 'Claude Code and GitHub Copilot. I built all of Analizoteka with that duo: architecture, backend, frontend, deployment.',
-        },
-      },
-      {
-        label: { pl: 'Zielona flaga', en: 'Green flag' },
-        text: {
-          pl: 'Mówię AI „dziękuję”. Kultura popłaca, a modele mnie lubią.',
-          en: 'I say "thank you" to the AI. Manners pay off and the models like me.',
-        },
-      },
-    ],
-    tags: ['Claude Code', 'GitHub Copilot', 'AI-assisted dev', { pl: 'Projekty AI w toku', en: 'AI projects in progress' }],
-    onLeft: {
-      pl: 'Na pewno? Zapytaliśmy AI. AI twierdzi, że to błąd.',
-      en: 'Are you sure? We asked the AI. The AI says that’s a mistake.',
-    },
-    onRight: {
-      pl: 'Match! Tomasz już pisze dla Ciebie powitalny prompt.',
-      en: 'It’s a match! Tomasz is already writing you a welcome prompt.',
-    },
-  },
-  {
-    id: 'maker',
-    kind: 'good',
-    emoji: '💡',
-    gradient: 'from-amber-400 via-rose-500 to-purple-600',
-    name: { pl: 'Tomasz „Kreator”', en: 'Tomasz "Maker"' },
-    tagline: {
-      pl: '10+ lat w IT · od pomysłu do produkcji',
-      en: '10+ years in IT · from idea to production',
-    },
-    bio: {
-      pl: 'Kreatywny od pomysłu do wdrożenia. Własny produkt, autorskie moduły analityczne i interfejsy, które ludzie chcą klikać. Jak czegoś nie ma, to to buduję.',
-      en: 'Creative from idea to release. My own product, my own analytics modules and interfaces people actually want to click. If it doesn’t exist, I build it.',
-    },
-    prompts: [
-      {
-        label: { pl: 'Dowód rzeczowy', en: 'Exhibit A' },
-        text: {
-          pl: 'Analizoteka: mój pomysł, moja architektura, mój frontend, mój deploy na Azure. Działa na produkcji i rośnie.',
-          en: 'Analizoteka: my idea, my architecture, my frontend, my Azure deployment. Live in production and growing.',
-        },
-      },
-      {
-        label: { pl: 'Sposób na problem', en: 'How I solve things' },
-        text: {
-          pl: 'Nie każdy problem to nowy system. Czasem wystarczy Power Platform: ubezpieczenia, inwentaryzacja, ewidencja czasu, ankiety. Ten sam efekt, ułamek kosztu.',
-          en: 'Not every problem needs a new system. Sometimes Power Platform does it: insurance, inventory, time tracking, surveys. Same result, a fraction of the cost.',
-        },
-      },
-    ],
-    tags: [
-      { pl: 'Własny produkt', en: 'Own product' },
-      'UX/UI',
-      'Power Platform',
-      'PL-900',
-      { pl: 'Od zera do produkcji', en: 'Zero to production' },
-    ],
-    onLeft: {
-      pl: 'Odrzucony? Już wymyślił trzy inne sposoby, żeby do Ciebie trafić.',
-      en: 'Rejected? He has already invented three other ways to reach you.',
-    },
-    onRight: {
-      pl: 'Match! Tomasz szkicuje prototyp, o którym jeszcze nie wiesz, że go potrzebujesz.',
-      en: 'It’s a match! Tomasz is sketching a prototype you don’t know you need yet.',
-    },
-  },
   {
     id: 'owner',
     kind: 'good',
     emoji: '👑',
-    gradient: 'from-yellow-300 via-amber-500 to-orange-600',
-    name: { pl: 'Tomasz „Właściciel”', en: 'Tomasz "Owner"' },
-    tagline: {
-      pl: '10+ lat w IT · architektura, kod, hosting, wydania',
-      en: '10+ years in IT · architecture, code, hosting, releases',
+    gradient: 'from-amber-400 via-rose-500 to-purple-600',
+    name: { pl: 'Tomasz „Kreator & Owner”', en: 'Tomasz "Maker & Owner"' },
+    tagline: { pl: 'Od pomysłu do działającego systemu', en: 'From idea to a working system' },
+    headline: {
+      pl: 'Łączę architekturę, backend, frontend i Azure w jedną całość.',
+      en: 'I bring architecture, backend, frontend and Azure together into one whole.',
     },
     bio: {
-      pl: 'Rozwijam własny produkt i biorę na siebie cały cykl życia: architektura, backend, frontend, hosting na Azure i proces wydań. Traktuję projekt jak właściciel, nie jak kolejny ticket do zamknięcia.',
-      en: 'I run my own product and take on the whole lifecycle: architecture, backend, frontend, Azure hosting and the release process. I treat a project like an owner, not like one more ticket to close.',
+      pl: 'Lubię brać pełną odpowiedzialność za projekt – od koncepcji biznesowej, przez wybór technologii, po wdrożenie na produkcję. Nie zamykam się w jednej wąskiej działce; sprawdzam się tam, gdzie trzeba połączyć różne elementy (bazy, API, interfejs, chmurę) w działający produkt.',
+      en: 'I like taking full ownership of a project – from the business concept, through choosing the technology, to the production release. I don’t lock myself into one narrow niche; I shine where different pieces (databases, APIs, UI, cloud) have to come together into a working product.',
     },
     prompts: [
       {
-        label: { pl: 'Co robię sam', en: 'What I run solo' },
+        label: exhibit,
         text: {
-          pl: 'Analizoteka: decyzje architektoniczne, kod po obu stronach, integracje z API rynkowymi, deploy i utrzymanie produkcji. Jedna osoba, pełna odpowiedzialność.',
-          en: 'Analizoteka: architecture decisions, code on both ends, market-data API integrations, deployment and production upkeep. One person, full responsibility.',
-        },
-      },
-      {
-        label: { pl: 'Zielona flaga', en: 'Green flag' },
-        text: {
-          pl: 'Nie pytam, czyje to zadanie. Jak się pali, najpierw gaszę, a właściciela szukam potem.',
-          en: 'I don’t ask whose task it is. If something is on fire I put it out first and look for the owner later.',
+          pl: 'Analizoteka.pl (samodzielne zaprojektowanie i zbudowanie portalu od A do Z) oraz autorskie aplikacje biznesowe na Power Platform.',
+          en: 'Analizoteka.pl (a portal I designed and built solo, from A to Z) and my own business apps on Power Platform.',
         },
       },
     ],
     tags: [
-      { pl: 'Architektura', en: 'Architecture' },
-      'Azure',
-      'CI/CD',
-      { pl: 'Proces wydań', en: 'Release process' },
-      { pl: 'Pełna odpowiedzialność', en: 'Full ownership' },
+      'Full-Stack',
+      'Azure Cloud',
+      'End-to-End',
+      { pl: 'Od 0 do Produkcji', en: 'Zero to Production' },
+      'Power Platform',
     ],
     onLeft: {
       pl: 'Odrzucasz właściciela produktu? On i tak to wdroży, tylko bez Ciebie.',
@@ -160,36 +75,36 @@ export const profiles: Profile[] = [
     },
   },
   {
-    id: 'brave',
+    id: 'onboarding',
     kind: 'good',
-    emoji: '🪂',
+    emoji: '🦎',
     gradient: 'from-cyan-400 via-sky-500 to-blue-600',
-    name: { pl: 'Tomasz „Śmiałek”', en: 'Tomasz "Fearless"' },
-    tagline: {
-      pl: '10+ lat w IT · szybszy niż onboarding',
-      en: '10+ years in IT · faster than your onboarding',
+    name: { pl: 'Tomasz „Szybki Onboarding”', en: 'Tomasz "Fast Onboarding"' },
+    tagline: { pl: 'Kameleon Technologiczny', en: 'Tech Chameleon' },
+    headline: {
+      pl: 'Nowa technologia w projekcie? Szybko się wdrażam i dostarczam kod.',
+      en: 'New tech in the project? I get up to speed fast and ship code.',
     },
     bio: {
-      pl: 'Nowa technologia w projekcie? Zgłaszam się pierwszy i dowożę. Angular, React, .NET, Swift, Kotlin, Azure, Kubernetes, Power Platform: każdą z tych rzeczy poznałem, bo projekt jej potrzebował.',
-      en: 'New tech in the project? I volunteer first and deliver. Angular, React, .NET, Swift, Kotlin, Azure, Kubernetes, Power Platform: I learned each of them because a project needed it.',
+      pl: 'Praca w różnorodnych projektach nauczyła mnie, że technologia to narzędzie do rozwiązania problemu. Błyskawicznie wchodzę w nieznany stack – bez problemu przechodzę między .NET, Angular, React, Low-Code czy nawet językami mobilnymi (Swift, Kotlin), jeśli wymaga tego sytuacja.',
+      en: 'Working on very different projects taught me that technology is a tool for solving a problem. I get into an unfamiliar stack in no time – switching between .NET, Angular, React, Low-Code and even mobile languages (Swift, Kotlin) whenever the situation calls for it.',
     },
     prompts: [
       {
-        label: { pl: 'Mocna strona', en: 'My strong suit' },
+        label: exhibit,
         text: {
-          pl: 'Wchodzę w nieznany stack i dowożę w nim produkcyjny kod. Sprawdzone w pięciu firmach i we własnym produkcie.',
-          en: 'I step into an unknown stack and ship production code in it. Proven at five companies and in my own product.',
-        },
-      },
-      {
-        label: { pl: 'Najodważniejszy ruch', en: 'Boldest move' },
-        text: {
-          pl: 'Jeden projekt, a w nim ja: backend, frontend w Angularze i apki mobilne w Swift i Kotlin. Wszystko dowiezione.',
-          en: 'One project, all me: backend, Angular frontend and mobile apps in Swift and Kotlin. All shipped.',
+          pl: 'Historia projektowa oparta na elastyczności: od sterowników w Visual Basic, przez aplikacje POS, VDR (.NET/React), po Azure i Low-Code.',
+          en: 'A project history built on flexibility: from Visual Basic drivers, through POS apps and a VDR (.NET/React), to Azure and Low-Code.',
         },
       },
     ],
-    tags: ['.NET', 'Angular', 'React', 'TypeScript', 'Swift', 'Kotlin', 'Azure', 'Kubernetes', 'Power Apps'],
+    tags: [
+      '.NET / C#',
+      'Angular & React',
+      'Docker & K8s',
+      { pl: 'Adaptacyjność', en: 'Adaptability' },
+      { pl: 'Szybki Onboarding', en: 'Fast Onboarding' },
+    ],
     onLeft: {
       pl: 'Nie da się. Tomasz już zaadaptował się do Twojego „nie”.',
       en: 'Doesn’t work. Tomasz has already adapted to your "no".',
@@ -200,49 +115,42 @@ export const profiles: Profile[] = [
     },
   },
   {
-    id: 'precision',
+    id: 'ai',
     kind: 'good',
-    emoji: '🎯',
-    gradient: 'from-red-500 via-rose-600 to-slate-800',
-    name: { pl: 'Tomasz „Precyzja”', en: 'Tomasz "Precision"' },
-    tagline: {
-      pl: '10+ lat w IT · 4 lata tam, gdzie błąd kosztuje',
-      en: '10+ years in IT · 4 years where mistakes cost money',
+    emoji: '🤖',
+    gradient: 'from-violet-500 via-fuchsia-500 to-pink-500',
+    name: { pl: 'Tomasz „AI-Native Dev”', en: 'Tomasz "AI-Native Dev"' },
+    tagline: { pl: 'Efektywność i Nowoczesny Warsztat', en: 'Efficiency and a Modern Toolkit' },
+    headline: {
+      pl: 'AI jako codzienne wsparcie w nauce, kodowaniu i refaktoringu.',
+      en: 'AI as everyday support for learning, coding and refactoring.',
     },
     bio: {
-      pl: 'Cztery lata przy oprogramowaniu POS: kasy, drukarki fiskalne, terminale płatnicze, programy lojalnościowe. Kod musiał być zgodny z przepisami fiskalnymi na kilku rynkach, bo tam błąd to nie bug, tylko problem prawny klienta.',
-      en: 'Four years on POS software: tills, fiscal printers, payment terminals, loyalty programmes. The code had to comply with fiscal regulations in several markets, where a mistake isn’t a bug, it’s the client’s legal problem.',
+      pl: 'Wykorzystuję AI (Claude Code, GitHub Copilot) jako partnera w codziennej pracy. Pozwala mi to jeszcze szybciej opanowywać nowe biblioteki, pisać czysty kod, generować testy i sprawnie przeskakiwać między różnymi technologiami.',
+      en: 'I use AI (Claude Code, GitHub Copilot) as a partner in my daily work. It helps me pick up new libraries even faster, write clean code, generate tests and move smoothly between different technologies.',
     },
     prompts: [
       {
-        label: { pl: 'Dlaczego to ważne', en: 'Why it matters' },
+        label: exhibit,
         text: {
-          pl: 'Umiem pracować tam, gdzie „prawie działa” nie wystarcza: paragon musi się zgadzać co do grosza, a przepisy w każdym kraju są inne.',
-          en: 'I know how to work where "almost works" isn’t enough: the receipt has to add up to the last cent and every country has its own rules.',
-        },
-      },
-      {
-        label: { pl: 'Język roboczy', en: 'Working language' },
-        text: {
-          pl: 'Angielski w każdej firmie i każdym projekcie: międzynarodowe zespoły, klienci z zagranicy, dokumentacja i code review po angielsku.',
-          en: 'English at every company and on every project: international teams, foreign clients, docs and code reviews in English.',
+          pl: 'Tworzenie portalu Analizoteka w pełnym workflow AI-assisted dev oraz codzienne stosowanie GitHub Copilot w obecnej pracy.',
+          en: 'Building the Analizoteka portal in a fully AI-assisted dev workflow, plus using GitHub Copilot every day in my current job.',
         },
       },
     ],
     tags: [
-      'POS',
-      { pl: 'Integracje sprzętowe', en: 'Hardware integrations' },
-      { pl: 'Zgodność z przepisami', en: 'Regulatory compliance' },
-      { pl: 'Rynki międzynarodowe', en: 'International markets' },
-      'English',
+      'Claude Code',
+      'GitHub Copilot',
+      'AI-Assisted Dev',
+      { pl: 'Nowoczesne Narzędzia', en: 'Modern Tooling' },
     ],
     onLeft: {
-      pl: 'Tomasz sprawdził tę decyzję dwa razy. Dalej wychodzi, że błędna.',
-      en: 'Tomasz double-checked that decision. It still comes out wrong.',
+      pl: 'Na pewno? Zapytaliśmy AI. AI twierdzi, że to błąd.',
+      en: 'Are you sure? We asked the AI. The AI says that’s a mistake.',
     },
     onRight: {
-      pl: 'Match! Tomasz już przelicza Twoje paragony co do grosza.',
-      en: 'It’s a match! Tomasz is already checking your receipts to the last cent.',
+      pl: 'Match! Tomasz już pisze dla Ciebie powitalny prompt.',
+      en: 'It’s a match! Tomasz is already writing you a welcome prompt.',
     },
   },
   {
@@ -250,30 +158,30 @@ export const profiles: Profile[] = [
     kind: 'good',
     emoji: '📈',
     gradient: 'from-emerald-500 via-green-500 to-lime-400',
-    name: { pl: 'Tomasz „Hossa”', en: 'Tomasz "Bull Market"' },
-    tagline: { pl: '10+ lat w IT · o jedną świecę od Ciebie', en: '10+ years in IT · one candle away' },
+    name: { pl: 'Tomasz „Pasjonat Rynków”', en: 'Tomasz "Markets Enthusiast"' },
+    tagline: { pl: 'Fintech & Domena Finansowa', en: 'Fintech & Finance Domain' },
+    headline: {
+      pl: 'Zrozumienie biznesu, danych finansowych i giełdy.',
+      en: 'Understanding the business, financial data and the stock market.',
+    },
     bio: {
-      pl: 'O mało nie zostałem analitykiem rynków finansowych. Wygrał kod, a pasja została, więc dziś łączę oba światy: bank i własny fintech. Wykresy świecowe czytam szybciej niż maile.',
-      en: 'I almost became a financial markets analyst. Code won, the passion stayed, so today I do both: a bank and my own fintech. I read candlestick charts faster than emails.',
+      pl: 'Łączę zacięcie programistyczne z głęboką praktyczną wiedzą o rynkach kapitałowych. O mało nie zostałem analitykiem rynków finansowych – przeszedłem gęste sito rekrutacyjne, ale pasja do tworzenia oprogramowania wygrała. Świetnie rozumiem świat finansów, dzięki czemu sprawnie przekładam wymagania biznesowe i wskaźniki giełdowe na działający kod.',
+      en: 'I combine a developer’s drive with deep, hands-on knowledge of capital markets. I almost became a financial markets analyst – I made it through a tough recruitment process, but my passion for building software won. I understand the world of finance well, so I translate business requirements and market indicators into working code with ease.',
     },
     prompts: [
       {
-        label: { pl: 'Owoc tej pasji', en: 'What the passion built' },
+        label: exhibit,
         text: {
-          pl: 'Analizoteka: platforma do analizy spółek. Wskaźniki, sprawozdania, dane rynkowe z API. Architektura, backend, frontend i Azure: wszystko moje.',
-          en: 'Analizoteka: a stock analysis platform. Ratios, statements, market data from APIs. Architecture, backend, frontend and Azure: all mine.',
+          pl: 'Stworzenie i rozwój własnej platformy analitycznej Analizoteka.pl (przetwarzanie danych giełdowych, sprawozdań i wskaźników w czasie rzeczywistym) oraz sukcesy w rekrutacjach analitycznych.',
+          en: 'Creating and growing my own analytics platform, Analizoteka.pl (processing market data, financial statements and indicators in real time), plus success in analyst recruitment processes.',
         },
-      },
-      {
-        label: { pl: 'Szukam kogoś', en: 'Looking for someone' },
-        text: { pl: 'Stabilnego. Jak dywidenda.', en: 'Stable. Like a dividend.' },
       },
     ],
     tags: [
-      { pl: 'Analiza fundamentalna', en: 'Fundamental analysis' },
-      { pl: 'Analiza techniczna', en: 'Technical analysis' },
-      'Analizoteka',
-      'Euroclear Bank',
+      'Fintech',
+      { pl: 'Analiza Rynkowa', en: 'Market Analysis' },
+      { pl: 'Dane Finansowe', en: 'Financial Data' },
+      { pl: 'Integracje API', en: 'API Integrations' },
     ],
     onLeft: {
       pl: 'Odrzucenie Tomasza ma ujemną stopę zwrotu. Rynek tego nie wybaczy.',
@@ -294,52 +202,36 @@ export const rejectLines: Text[] = [
 
 export const summaryTraits: { emoji: string; title: Text; text: Text; link?: { label: Text; href: string } }[] = [
   {
-    emoji: '🤖',
-    title: { pl: 'Pasjonat AI', en: 'AI enthusiast' },
-    text: {
-      pl: 'Rozwijam kilka własnych projektów AI i z chęcią opowiem o nich na rozmowie. Na co dzień pracuję w workflow AI-assisted: Claude Code i GitHub Copilot na całym stacku.',
-      en: 'I’m building several AI projects of my own and I’m happy to walk you through them. I work in an AI-assisted workflow every day: Claude Code and GitHub Copilot across the whole stack.',
-    },
-  },
-  {
-    emoji: '💡',
-    title: { pl: 'Kreatywny', en: 'Creative' },
-    text: {
-      pl: 'Własny produkt od pomysłu do produkcji, autorskie moduły analityczne, interfejsy dopracowane z UX. Narzędzie dobieram do problemu: raz .NET i Azure, raz Power Platform w ułamku kosztu.',
-      en: 'My own product from idea to production, my own analytics modules, interfaces polished with UX. I pick the tool for the problem: .NET and Azure one time, Power Platform at a fraction of the cost the next.',
-    },
-  },
-  {
     emoji: '👑',
-    title: { pl: 'Właściciel produktu', en: 'Product owner' },
+    title: { pl: 'Kreator & Owner', en: 'Maker & Owner' },
     text: {
-      pl: 'Własny produkt prowadzę sam od końca do końca: architektura, backend, frontend, hosting na Azure i wydania. Do projektu wchodzę z myśleniem właściciela, nie wykonawcy zadań.',
-      en: 'I run my own product end to end: architecture, backend, frontend, Azure hosting and releases. I come in with an owner’s mindset, not a ticket-taker’s.',
+      pl: 'Pełna odpowiedzialność za projekt: od koncepcji biznesowej, przez wybór technologii, po wdrożenie na produkcję. Bazy, API, interfejs i chmura połączone w działający produkt.',
+      en: 'Full ownership of a project: from the business concept, through choosing the technology, to the production release. Databases, APIs, UI and cloud brought together into a working product.',
     },
     link: { label: { pl: 'Zobacz Analizotekę', en: 'See Analizoteka' }, href: contact.analizoteka },
   },
   {
-    emoji: '🪂',
-    title: { pl: 'Odważny', en: 'Fearless' },
+    emoji: '🦎',
+    title: { pl: 'Szybki Onboarding', en: 'Fast Onboarding' },
     text: {
-      pl: 'Pierwszy wskakuję w nowe technologie i szybko dowożę w nich produkcyjny kod: .NET, Angular, React, Swift, Kotlin, Azure, Kubernetes, Power Platform. Szeroki wachlarz to moja przewaga.',
-      en: 'First to jump into new tech and fast to ship production code in it: .NET, Angular, React, Swift, Kotlin, Azure, Kubernetes, Power Platform. That range is my edge.',
+      pl: 'Błyskawicznie wchodzę w nieznany stack: .NET, Angular, React, Low-Code, a w razie potrzeby Swift i Kotlin. Od sterowników w Visual Basic, przez POS i VDR, po Azure.',
+      en: 'I get into an unfamiliar stack in no time: .NET, Angular, React, Low-Code, and Swift or Kotlin when needed. From Visual Basic drivers, through POS and a VDR, to Azure.',
     },
   },
   {
-    emoji: '🎯',
-    title: { pl: 'Precyzyjny', en: 'Precise' },
+    emoji: '🤖',
+    title: 'AI-Native Dev',
     text: {
-      pl: 'Cztery lata przy POS: drukarki fiskalne, terminale, zgodność z przepisami na kilku rynkach. Środowisko, w którym błąd kosztuje realne pieniądze. Angielski roboczo w każdej firmie i każdym projekcie.',
-      en: 'Four years on POS: fiscal printers, payment terminals, regulatory compliance across several markets. An environment where a mistake costs real money. English as a working language at every company and on every project.',
+      pl: 'Claude Code i GitHub Copilot jako partnerzy w codziennej pracy: szybsza nauka nowych bibliotek, czysty kod, testy i sprawne przeskakiwanie między technologiami.',
+      en: 'Claude Code and GitHub Copilot as partners in my daily work: faster learning of new libraries, clean code, tests and smooth switching between technologies.',
     },
   },
   {
     emoji: '📈',
-    title: 'Fintech',
+    title: { pl: 'Pasjonat Rynków', en: 'Markets Enthusiast' },
     text: {
-      pl: 'O mało nie zostałem analitykiem rynków finansowych, a dziś łączę oba światy: bank i własna platforma Analizoteka do analizy spółek.',
-      en: 'I almost became a financial markets analyst. Today I do both: a bank, and Analizoteka, my own stock analysis platform.',
+      pl: 'O mało nie zostałem analitykiem rynków finansowych. Rozumiem świat finansów i sprawnie przekładam wymagania biznesowe oraz wskaźniki giełdowe na działający kod.',
+      en: 'I almost became a financial markets analyst. I understand the world of finance and translate business requirements and market indicators into working code with ease.',
     },
   },
 ]
@@ -360,7 +252,7 @@ const pl = {
   crunching: 'Algorytm liczy matche…',
   revealTitle: (n: number) => `It’s a Match! ×${n}`,
   reveal1: 'Chwila… Czy oni wszyscy nie mają przypadkiem na imię Tomasz?',
-  reveal2: 'Prompt, Kreator, Właściciel, Śmiałek, Precyzja i Hossa to jedna i ta sama osoba.',
+  reveal2: 'Kreator & Owner, Szybki Onboarding, AI-Native Dev i Pasjonat Rynków to jedna i ta sama osoba.',
   reveal3: 'To nie jest match. To full-stack.',
   revealCta: 'Pokaż kandydata',
   role: 'Full-Stack Software Engineer',
@@ -395,7 +287,7 @@ const en: typeof pl = {
   crunching: 'Crunching the matches…',
   revealTitle: (n) => `It’s a Match! ×${n}`,
   reveal1: 'Wait… don’t they all happen to be called Tomasz?',
-  reveal2: 'Prompt, Maker, Owner, Fearless, Precision and Bull Market are one and the same person.',
+  reveal2: 'Maker & Owner, Fast Onboarding, AI-Native Dev and Markets Enthusiast are one and the same person.',
   reveal3: 'That’s not a match. That’s full-stack.',
   revealCta: 'Show me the candidate',
   role: 'Full-Stack Software Engineer',

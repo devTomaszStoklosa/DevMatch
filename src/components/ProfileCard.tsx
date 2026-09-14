@@ -38,6 +38,7 @@ export function ProfileCard({ profile: p, lang, like = 0, nope = 0 }: Props) {
       </div>
 
       <div className="flex min-h-0 flex-1 touch-pan-y flex-col gap-3 overflow-y-auto p-4 text-[0.9rem] leading-snug">
+        <p className="font-semibold">{tr(lang, p.headline)}</p>
         <p>{tr(lang, p.bio)}</p>
         {p.prompts.map((prompt, i) => (
           <div key={i} className="rounded-2xl bg-slate-100 px-3 py-2">
