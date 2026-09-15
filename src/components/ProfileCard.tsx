@@ -1,7 +1,7 @@
-import { tr, ui, type Lang, type Profile } from '../content'
+import { tr, ui, type Lang, type ProfileView } from '../content'
 
 type Props = {
-  profile: Profile
+  profile: ProfileView
   lang: Lang
   /** 0..1 visibility of the "hire" stamp while dragging right. */
   like?: number

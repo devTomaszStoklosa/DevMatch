@@ -38,8 +38,8 @@ export function SwipeDeck({ lang, onReject, onHire, onFinish }: Props) {
   const profile: Profile | undefined = profiles[index]
   const rejects = profile ? (cardRejects[profile.id] ?? 0) : 0
 
-  // The "Nope" button gets progressively less cooperative, but only for Tomasz.
-  const nopeMode = profile?.kind === 'good' ? (rejects >= 2 ? 'broken' : rejects === 1 ? 'dodge' : 'normal') : 'normal'
+  // The "Nope" button gets progressively less cooperative.
+  const nopeMode = rejects >= 2 ? 'broken' : rejects === 1 ? 'dodge' : 'normal'
 
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
 
@@ -77,15 +77,14 @@ export function SwipeDeck({ lang, onReject, onHire, onFinish }: Props) {
 
   const decide = (dir: Decision) => {
     if (!profile || leaving) return
-    if (profile.kind === 'good' && dir === 'left') return bounceBack(profile)
+    if (dir === 'left') return bounceBack(profile)
 
     setLeaving(true)
-    setOffset((o) => ({ x: (dir === 'right' ? 1 : -1) * window.innerWidth * 1.2, y: o.y }))
-    const happy = profile.kind === 'good' || dir === 'left'
-    showToast(dir === 'right' ? profile.onRight : profile.onLeft, happy ? 'good' : 'bad')
+    setOffset((o) => ({ x: window.innerWidth * 1.2, y: o.y }))
+    showToast(profile.onRight, 'good')
 
     later(() => {
-      if (dir === 'right') onHire()
+      onHire()
       setLeaving(false)
       setOffset({ x: 0, y: 0 })
       setNopeShift({ x: 0, y: 0 })
