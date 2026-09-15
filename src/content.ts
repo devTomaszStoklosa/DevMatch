@@ -14,10 +14,8 @@ export const contact = {
   cv: `${import.meta.env.BASE_URL}Tomasz_Stoklosa_EN.pdf`,
 }
 
-export type Profile = {
-  id: string
-  /** 'good' profiles cannot be rejected: the card bounces back. */
-  kind: 'good' | 'fake'
+/** The fields a profile card displays. */
+export type ProfileView = {
   emoji: string
   gradient: string
   name: Text
@@ -27,6 +25,12 @@ export type Profile = {
   bio: Text
   prompts: { label: Text; text: Text }[]
   tags: Text[]
+}
+
+/** Profiles cannot be rejected: swiping left bounces the card back. */
+export type Profile = ProfileView & {
+  id: string
+  /** Toast shown after the first reject attempt on this card. */
   onLeft: Text
   onRight: Text
 }
@@ -36,7 +40,6 @@ const exhibit: Text = { pl: 'Dowód rzeczowy', en: 'Exhibit A' }
 export const profiles: Profile[] = [
   {
     id: 'owner',
-    kind: 'good',
     emoji: '👑',
     gradient: 'from-amber-400 via-rose-500 to-purple-600',
     name: { pl: 'Tomasz „Kreator & Owner”', en: 'Tomasz "Maker & Owner"' },
@@ -76,7 +79,6 @@ export const profiles: Profile[] = [
   },
   {
     id: 'onboarding',
-    kind: 'good',
     emoji: '🦎',
     gradient: 'from-cyan-400 via-sky-500 to-blue-600',
     name: { pl: 'Tomasz „Szybki Onboarding”', en: 'Tomasz "Fast Onboarding"' },
@@ -116,7 +118,6 @@ export const profiles: Profile[] = [
   },
   {
     id: 'ai',
-    kind: 'good',
     emoji: '🤖',
     gradient: 'from-violet-500 via-fuchsia-500 to-pink-500',
     name: { pl: 'Tomasz „AI-Native Dev”', en: 'Tomasz "AI-Native Dev"' },

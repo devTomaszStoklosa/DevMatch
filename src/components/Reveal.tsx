@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { profiles, ui, type Lang } from '../content'
 
-const disguises = profiles.filter((p) => p.kind === 'good')
 // Avatars have to fit side by side inside a phone-width row before they merge.
-const SIZE = disguises.length > 4 ? 48 : 80
+const SIZE = profiles.length > 4 ? 48 : 80
 
 export function Reveal({ lang, onContinue }: { lang: Lang; onContinue: () => void }) {
   const t = ui[lang]
@@ -17,11 +16,11 @@ export function Reveal({ lang, onContinue }: { lang: Lang; onContinue: () => voi
   return (
     <section className="flex flex-1 flex-col items-center justify-center gap-6 py-6 text-center">
       <h1 className="animate-pop bg-linear-to-r from-rose-400 to-orange-300 bg-clip-text text-4xl font-black text-transparent sm:text-5xl">
-        {t.revealTitle(disguises.length)}
+        {t.revealTitle(profiles.length)}
       </h1>
 
       <div className="relative w-full max-w-xs" style={{ height: SIZE }} aria-hidden>
-        {disguises.map((p, i) => (
+        {profiles.map((p, i) => (
           <div
             key={p.id}
             className={`absolute top-0 left-1/2 grid place-items-center rounded-full bg-linear-to-br shadow-xl transition-all duration-700 ease-in-out ${p.gradient}`}
@@ -29,7 +28,7 @@ export function Reveal({ lang, onContinue }: { lang: Lang; onContinue: () => voi
               width: SIZE,
               height: SIZE,
               fontSize: SIZE * 0.5,
-              transform: `translateX(calc(-50% + ${merged ? 0 : (i - (disguises.length - 1) / 2) * 92}%)) scale(${merged ? 0.5 : 1})`,
+              transform: `translateX(calc(-50% + ${merged ? 0 : (i - (profiles.length - 1) / 2) * 92}%)) scale(${merged ? 0.5 : 1})`,
               opacity: merged ? 0 : 1,
             }}
           >
